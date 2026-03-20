@@ -1,0 +1,26 @@
+{
+  "name": "Ajay Bansal Group",
+  "short_name": "ABG",
+  "description": "Architecture, Engineering, Interior Design & Real Estate Development",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D1B2A",
+  "theme_color": "#0D1B2A",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/logos/logo-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logos/logo-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["architecture", "business", "design"],
+  "lang": "en-IN"
+}

@@ -1,26 +1,222 @@
 @import "tailwindcss";
 
+/* ─── THEME VARIABLES ──────────────────────────────────────────
+   --t-dark    : navbar / hero / dark-section bg
+   --t-dark-2  : secondary dark (stats bar, card bg)
+   --t-dark-3  : tertiary dark (hover states)
+   --t-accent  : primary accent (gold / teal / copper …)
+   --t-accent-h: accent hover / lighter shade
+   --t-light   : page background (warm white)
+   --t-light-2 : alternate section background
+   --t-dark-txt: dark body text
+   ──────────────────────────────────────────────────────────── */
+
+/* 1. LEGACY — Navy & Gold (default) */
+:root,
+[data-theme="legacy"] {
+  --t-dark:     #0D1B2A;
+  --t-dark-2:   #1C2B3A;
+  --t-dark-3:   #2E4057;
+  --t-accent:   #C9A84C;
+  --t-accent-h: #E8C97A;
+  --t-light:    #FAF7F2;
+  --t-light-2:  #F5F0E8;
+  --t-dark-txt: #0D1B2A;
+}
+
+/* 2. VERDANT — Forest & Sage */
+[data-theme="verdant"] {
+  --t-dark:     #1A2E1F;
+  --t-dark-2:   #243D2A;
+  --t-dark-3:   #2F5238;
+  --t-accent:   #6DAF6F;
+  --t-accent-h: #90CC92;
+  --t-light:    #F5FAF5;
+  --t-light-2:  #E8F5E9;
+  --t-dark-txt: #1A2E1F;
+}
+
+/* 3. EMBER — Charcoal & Copper */
+[data-theme="ember"] {
+  --t-dark:     #1E1710;
+  --t-dark-2:   #2D2218;
+  --t-dark-3:   #3D3020;
+  --t-accent:   #C4692A;
+  --t-accent-h: #DF8A50;
+  --t-light:    #FBF6EF;
+  --t-light-2:  #F5EDE3;
+  --t-dark-txt: #1E1710;
+}
+
+/* 4. COASTAL — Ocean & Teal */
+[data-theme="coastal"] {
+  --t-dark:     #0D2030;
+  --t-dark-2:   #163040;
+  --t-dark-3:   #1F4155;
+  --t-accent:   #3AAFA9;
+  --t-accent-h: #5CC8C2;
+  --t-light:    #F2FAFA;
+  --t-light-2:  #E3F4F3;
+  --t-dark-txt: #0D2030;
+}
+
+/* 5. ROYAL — Plum & Champagne */
+[data-theme="royal"] {
+  --t-dark:     #1E0F1A;
+  --t-dark-2:   #2D1525;
+  --t-dark-3:   #3D1E32;
+  --t-accent:   #C4965A;
+  --t-accent-h: #D9B07A;
+  --t-light:    #FBF5F0;
+  --t-light-2:  #F5EBE3;
+  --t-dark-txt: #1E0F1A;
+}
+
+/* Legacy aliases used in globals.css utility classes */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brand-navy:    var(--t-dark);
+  --brand-gold:    var(--t-accent);
+  --brand-cream:   var(--t-light-2);
+  --brand-warm:    var(--t-light);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--brand-warm);
+  color: var(--brand-navy);
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--brand-cream); }
+::-webkit-scrollbar-thumb { background: var(--brand-gold); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand-navy); }
+
+/* Gold accent underline */
+.gold-underline::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: var(--brand-gold);
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+/* Scroll-triggered fade */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image hover zoom container */
+.zoom-wrap { overflow: hidden; }
+.zoom-wrap img { transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
+.zoom-wrap:hover img { transform: scale(1.08); }
+
+/* Card hover lift */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.13);
+}
+
+/* Nav underline */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--brand-gold);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Gold button */
+.btn-gold {
+  background: var(--brand-gold);
+  color: var(--brand-navy);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+.btn-gold:hover {
+  background: var(--t-accent-h);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--t-accent) 40%, transparent);
+}
+
+/* ─── HERO CAROUSEL ─────────────────────────────────────────── */
+
+/* Ken Burns variants — 5 distinct zoom/pan directions */
+@keyframes kenburns-1 {
+  from { transform: scale(1)    translate(0,    0);    }
+  to   { transform: scale(1.12) translate(-2%,  -1%);  }
+}
+@keyframes kenburns-2 {
+  from { transform: scale(1.05) translate(2%,   1%);   }
+  to   { transform: scale(1.15) translate(-1%,  -2%);  }
+}
+@keyframes kenburns-3 {
+  from { transform: scale(1)    translate(-1%,  2%);   }
+  to   { transform: scale(1.1)  translate(2%,   -1%);  }
+}
+@keyframes kenburns-4 {
+  from { transform: scale(1.08) translate(0,    0);    }
+  to   { transform: scale(1)    translate(-2%,  2%);   }
+}
+@keyframes kenburns-5 {
+  from { transform: scale(1)    translate(2%,   -2%);  }
+  to   { transform: scale(1.12) translate(0,    1%);   }
+}
+
+/* Text entrance — slide up + fade in */
+@keyframes hero-slide-up {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* Progress bar for slide timer */
+@keyframes slide-progress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.hero-text-enter {
+  animation: hero-slide-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Outline button */
+.btn-outline {
+  border: 2px solid var(--brand-gold);
+  color: var(--brand-gold);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+.btn-outline:hover {
+  background: var(--brand-gold);
+  color: var(--brand-navy);
+  transform: translateY(-2px);
 }
