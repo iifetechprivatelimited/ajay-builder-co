@@ -109,16 +109,6 @@ body {
   border-radius: 2px;
 }
 
-/* Scroll-triggered fade */
-.reveal {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* Image hover zoom container */
 .zoom-wrap { overflow: hidden; }

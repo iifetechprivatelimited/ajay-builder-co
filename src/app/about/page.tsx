@@ -7,7 +7,7 @@ import { trustedClients } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Learn about Ajay Bansal Group — 40 years of design excellence, our ethos, vision, mission, and the story of Er. Ajay Bansal.",
+  description: "Learn about Ajay Builders & Consultant — 40 years of design excellence, our ethos, vision, mission, and the story of Er. Ajay Bansal.",
 };
 
 const values = [
@@ -27,7 +27,7 @@ export default function AboutPage() {
       <section className="bg-[var(--t-dark)] pt-32 pb-20 px-6">
         <div className="max-w-4xl mx-auto text-center text-white">
           <p className="text-[var(--t-accent)] text-sm uppercase tracking-[0.3em] mb-4">Our Story</p>
-          <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6">About Ajay Bansal Group</h1>
+          <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6">About Ajay Builders & Consultant</h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
             Four decades of transforming visions into landmark realities — guided by integrity, driven by innovation.
           </p>
@@ -44,7 +44,7 @@ export default function AboutPage() {
                 A Reliable Platform for Assured Quality
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                At Ajay Bansal Group, we constantly strive for optimum performance and excellent results. For us, quality work is the means. The starting points are goals, strategies and expectations — but our work transcends them to create a new and better reality. Design is transformative.
+                At Ajay Builders & Consultant, we constantly strive for optimum performance and excellent results. For us, quality work is the means. The starting points are goals, strategies and expectations — but our work transcends them to create a new and better reality. Design is transformative.
               </p>
               <p className="text-gray-600 leading-relaxed mb-5">
                 We understand the requirements of each client and efficiently address every challenge with our committed team, giving the best creative expression to each project while running a growth-driven, profitable business.
@@ -71,7 +71,7 @@ export default function AboutPage() {
                   ))}
                 </div>
                 <div className="relative h-48 rounded-xl overflow-hidden">
-                  <Image src="/images/logos/logo.png" alt="Ajay Bansal Group" fill className="object-contain p-4" />
+                  <Image src="/images/logos/ABC Logo2.png" alt="Ajay Builders & Consultant" fill className="object-contain p-4" />
                 </div>
               </div>
             </div>

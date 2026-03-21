@@ -9,7 +9,7 @@ import { stats, services, projects, valueApproach } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Home",
   description:
-    "Ajay Bansal Group — 40 years of architectural excellence in engineering, interior design, and real estate development across India.",
+    "Ajay Builders & Consultant — 40 years of architectural excellence in engineering, interior design, and real estate development across India.",
 };
 
 const featuredProjects = projects.filter((p) => p.featured && p.images.length > 0);

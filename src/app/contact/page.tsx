@@ -37,7 +37,7 @@ export default function ContactPage() {
             <div>
               <p className="text-[var(--t-accent)] text-sm uppercase tracking-[0.25em] font-medium mb-3">Our Office</p>
               <h2 className="font-serif text-3xl font-bold text-[var(--t-dark)] mb-8 gold-underline">
-                Ajay Bansal Group
+                Ajay Builders & Consultant
               </h2>
 
               <div className="space-y-6 mb-10">
@@ -60,12 +60,11 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-[var(--t-dark)] text-sm mb-1">Phone</p>
-                    <a href="tel:+917514066607" className="text-gray-600 text-sm hover:text-[var(--t-accent)] transition-colors">
-                      (+91-751) 4066607
+                    <a href="tel:07512373134" className="text-gray-600 text-sm hover:text-[var(--t-accent)] transition-colors block">
+                      0751-2373134
                     </a>
-                    <span className="text-gray-400 mx-2">/</span>
-                    <a href="tel:+912373134" className="text-gray-600 text-sm hover:text-[var(--t-accent)] transition-colors">
-                      2373134
+                    <a href="tel:+919111078900" className="text-gray-600 text-sm hover:text-[var(--t-accent)] transition-colors block">
+                      91110 789 00
                     </a>
                   </div>
                 </div>
@@ -76,11 +75,11 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-[var(--t-dark)] text-sm mb-1">Email</p>
-                    <a href="mailto:nikunjbansal@nibaventures.com" className="text-gray-600 text-sm hover:text-[var(--t-accent)] transition-colors block">
-                      nikunjbansal@nibaventures.com
-                    </a>
                     <a href="mailto:ar.ajaybansal@gmail.com" className="text-gray-600 text-sm hover:text-[var(--t-accent)] transition-colors block">
                       ar.ajaybansal@gmail.com
+                    </a>
+                    <a href="mailto:nibaventures@gmail.com" className="text-gray-600 text-sm hover:text-[var(--t-accent)] transition-colors block">
+                      nibaventures@gmail.com
                     </a>
                   </div>
                 </div>

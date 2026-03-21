@@ -1,5 +1,5 @@
 export const companyInfo = {
-  name: "Ajay Bansal Group",
+  name: "Ajay Builders & Consultant",
   tagline: "Designing Spaces. Defining Lives.",
   subTagline:
     "Architecture · Engineering · Interiors · Development · Valuation",
@@ -7,8 +7,8 @@ export const companyInfo = {
   experience: 40,
   projectsCount: "1000+",
   website: "www.ajaybansalgroup.com",
-  phone: "(+91 – 751) 4066607 / 2373134",
-  email: "nikunjbansal@nibaventures.com | ar.ajaybansal@gmail.com",
+  phone: "0751-2373134 / 91110 789 00",
+  email: "ar.ajaybansal@gmail.com | nibaventures@gmail.com",
   address: "S 34–35 Sanjay Complex, Jayendraganj, Gwalior (MP) – 474009",
   formerly: "Formerly known as Ajay Builder & Consultants",
 };

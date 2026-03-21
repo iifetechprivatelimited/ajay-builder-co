@@ -15,15 +15,15 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 relative">
                 <Image
-                  src="/images/logos/logo-icon.png"
-                  alt="ABG"
+                  src="/images/logos/ABC Logo2.png"
+                  alt="ABC"
                   fill
                   className="object-contain"
                 />
               </div>
               <div>
                 <div className="font-serif font-bold text-xl">
-                  Ajay Bansal Group
+                  Ajay Builders & Consultant
                 </div>
                 <div className="text-[11px] tracking-[0.2em] text-[var(--t-accent)] uppercase">
                   Formerly Ajay Builder &amp; Consultants
@@ -31,7 +31,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm mb-6">
-              Established in 1984, Ajay Bansal Group is a multi-disciplinary
+              Established in 1984, Ajay Builders & Consultant is a multi-disciplinary
               firm delivering excellence in Architecture, Engineering, Interior
               Design, Development, and Valuation across India.
             </p>
@@ -88,27 +88,29 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 text-sm text-gray-400">
                 <Phone size={16} className="text-[var(--t-accent)] flex-shrink-0" />
-                <a
-                  href="tel:+917514066607"
-                  className="hover:text-[var(--t-accent)] transition-colors"
-                >
-                  (+91-751) 4066607 / 2373134
-                </a>
+                <div className="flex flex-col gap-1">
+                  <a href="tel:07512373134" className="hover:text-[var(--t-accent)] transition-colors">
+                    0751-2373134
+                  </a>
+                  <a href="tel:+919111078900" className="hover:text-[var(--t-accent)] transition-colors">
+                    91110 789 00
+                  </a>
+                </div>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-400">
                 <Mail size={16} className="text-[var(--t-accent)] mt-0.5 flex-shrink-0" />
                 <div className="flex flex-col gap-1">
                   <a
-                    href="mailto:nikunjbansal@nibaventures.com"
-                    className="hover:text-[var(--t-accent)] transition-colors"
-                  >
-                    nikunjbansal@nibaventures.com
-                  </a>
-                  <a
                     href="mailto:ar.ajaybansal@gmail.com"
                     className="hover:text-[var(--t-accent)] transition-colors"
                   >
                     ar.ajaybansal@gmail.com
+                  </a>
+                  <a
+                    href="mailto:nibaventures@gmail.com"
+                    className="hover:text-[var(--t-accent)] transition-colors"
+                  >
+                    nibaventures@gmail.com
                   </a>
                 </div>
               </li>
@@ -132,7 +134,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
           <p>
-            &copy; {new Date().getFullYear()} Ajay Bansal Group. All rights
+            &copy; {new Date().getFullYear()} Ajay Builders & Consultant. All rights
             reserved.
           </p>
           <p className="text-center">

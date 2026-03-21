@@ -43,8 +43,8 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-3 group">
           <div className="w-10 h-10 relative flex-shrink-0">
             <Image
-              src="/images/logos/logo-icon.png"
-              alt="ABG Logo"
+              src="/images/logos/ABC Logo2.png"
+              alt="ABC Logo"
               fill
               className="object-contain"
             />
@@ -53,7 +53,7 @@ export default function Navbar() {
             <div
               className={`font-serif font-bold text-lg leading-none ${textColor}`}
             >
-              Ajay Bansal Group
+              Ajay Builders & Consultant
             </div>
             <div className="text-[10px] tracking-[0.2em] text-[var(--t-accent)] uppercase">
               Architecture · Engineering
