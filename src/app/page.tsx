@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Building2, Users, MapPin, Award } from "lucide-react";
+import { ArrowRight, Building2, Users, MapPin, Award, Compass, Wrench, Sofa, BarChart2, Key, Landmark } from "lucide-react";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import HeroCarousel from "@/components/HeroCarousel";
 import { stats, services, projects, valueApproach } from "@/lib/data";
+
+const serviceIconMap: Record<string, React.ReactNode> = {
+  architecture:  <Compass  size={28} strokeWidth={1.5} />,
+  engineering:   <Wrench   size={28} strokeWidth={1.5} />,
+  interior:      <Sofa     size={28} strokeWidth={1.5} />,
+  development:   <Landmark size={28} strokeWidth={1.5} />,
+  valuation:     <BarChart2 size={28} strokeWidth={1.5} />,
+  turnkey:       <Key      size={28} strokeWidth={1.5} />,
+};
 
 export const metadata: Metadata = {
   title: "Home",
@@ -21,14 +30,14 @@ export default function HomePage() {
       <HeroCarousel />
 
       {/* STATS */}
-      <section className="bg-[var(--t-dark-2)] py-10">
+      <section className="bg-[var(--t-dark)] border-t border-white/5 py-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-0">
             {stats.map((s, i) => (
-              <RevealOnScroll key={i} delay={i * 100}>
-                <div className="border-r border-white/10 last:border-0">
-                  <div className="font-serif text-3xl md:text-4xl font-bold text-[var(--t-accent)]">{s.value}</div>
-                  <div className="text-gray-400 text-sm mt-1">{s.label}</div>
+              <RevealOnScroll key={i} delay={i * 80}>
+                <div className="px-8 py-4 border-r border-white/10 last:border-0 text-center">
+                  <div className="font-serif text-4xl md:text-5xl font-bold text-[var(--t-accent)] tracking-tight">{s.value}</div>
+                  <div className="text-gray-400 text-xs uppercase tracking-[0.15em] mt-2">{s.label}</div>
                 </div>
               </RevealOnScroll>
             ))}
@@ -57,16 +66,16 @@ export default function HomePage() {
             </div>
           </RevealOnScroll>
           <RevealOnScroll delay={200}>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-px bg-gray-100">
               {[
-                {icon:<Building2 size={28}/>, title:"6 Business Areas", desc:"Architecture, Engineering, Interiors, Development, Valuation & Turn-Key"},
-                {icon:<Award size={28}/>, title:"Lifetime Achievement", desc:"Recognized for outstanding contributions to architecture and structural engineering"},
-                {icon:<Users size={28}/>, title:"Trusted by Institutions", desc:"GDA, Municipal Corp, Housing Board, nationalized banks & more"},
-                {icon:<MapPin size={28}/>, title:"Pan-India Presence", desc:"Projects across MP, Rajasthan, Chhattisgarh and Delhi NCR"},
+                {icon:<Building2 size={22} strokeWidth={1.5}/>, title:"6 Business Areas", desc:"Architecture, Engineering, Interiors, Development, Valuation & Turn-Key"},
+                {icon:<Award size={22} strokeWidth={1.5}/>, title:"Lifetime Achievement", desc:"Recognized for outstanding contributions to architecture and structural engineering"},
+                {icon:<Users size={22} strokeWidth={1.5}/>, title:"Trusted by Institutions", desc:"GDA, Municipal Corp, Housing Board, nationalized banks & more"},
+                {icon:<MapPin size={22} strokeWidth={1.5}/>, title:"Pan-India Presence", desc:"Projects across MP, Rajasthan, Chhattisgarh and Delhi NCR"},
               ].map((item, i) => (
-                <div key={i} className="luxury-card card-hover bg-white rounded-xl p-6">
-                  <div className="text-[var(--t-accent)] mb-3">{item.icon}</div>
-                  <h4 className="font-semibold text-[var(--t-dark)] text-sm mb-2">{item.title}</h4>
+                <div key={i} className="luxury-card card-hover bg-white p-6 group">
+                  <div className="text-[var(--t-accent)] mb-4 transition-transform duration-300 group-hover:scale-110 origin-left">{item.icon}</div>
+                  <h4 className="font-semibold text-[var(--t-dark)] text-sm mb-2 tracking-wide">{item.title}</h4>
                   <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
                 </div>
               ))}
@@ -84,17 +93,19 @@ export default function HomePage() {
               <h2 className="font-serif text-4xl md:text-5xl font-bold text-[var(--t-dark)]">Our Services</h2>
             </div>
           </RevealOnScroll>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200">
             {services.map((s, i) => (
-              <RevealOnScroll key={s.id} delay={i * 80}>
-                <div className="luxury-card card-hover bg-white rounded-xl p-8 h-full">
-                  <div className="text-4xl mb-4">{s.icon}</div>
+              <RevealOnScroll key={s.id} delay={i * 60}>
+                <div className="luxury-card card-hover bg-white p-8 h-full group">
+                  <div className="text-[var(--t-accent)] mb-5 transition-transform duration-300 group-hover:scale-110 origin-left">
+                    {serviceIconMap[s.id] ?? <Compass size={28} strokeWidth={1.5} />}
+                  </div>
                   <h3 className="font-serif text-xl font-bold text-[var(--t-dark)] mb-3">{s.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">{s.description}</p>
-                  <ul className="space-y-1">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-5">{s.description}</p>
+                  <ul className="space-y-2">
                     {s.highlights.slice(0,2).map((h) => (
                       <li key={h} className="flex items-center gap-2 text-xs text-gray-500">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--t-accent)] flex-shrink-0" />
+                        <span className="w-4 h-px bg-[var(--t-accent)] flex-shrink-0" />
                         {h}
                       </li>
                     ))}
@@ -129,15 +140,15 @@ export default function HomePage() {
             {featuredProjects.map((project, i) => (
               <RevealOnScroll key={project.id} delay={i * 100}>
                 <Link href={`/portfolio#${project.id}`} className="group block">
-                  <div className="zoom-wrap rounded-xl overflow-hidden aspect-[4/3] bg-[var(--t-dark-2)] relative">
+                  <div className="zoom-wrap overflow-hidden aspect-[4/3] bg-[var(--t-dark-2)] relative">
                     {project.images[0] && (
                       <Image src={project.images[0]} alt={project.title} fill className="object-cover" sizes="(max-width:768px) 100vw,(max-width:1200px) 50vw,33vw" />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <span className="text-[var(--t-accent)] text-xs uppercase tracking-widest">{project.category}</span>
-                      <h3 className="font-serif text-white text-xl font-bold mt-1">{project.title}</h3>
-                      <p className="text-gray-300 text-sm mt-1">{project.location}</p>
+                      <span className="text-[var(--t-accent)] text-[10px] uppercase tracking-[0.2em]">{project.category}</span>
+                      <h3 className="font-serif text-white text-xl font-bold mt-1 leading-snug">{project.title}</h3>
+                      <p className="text-gray-300 text-xs mt-1 tracking-wide">{project.location}</p>
                     </div>
                   </div>
                 </Link>
@@ -156,13 +167,13 @@ export default function HomePage() {
               <h2 className="font-serif text-4xl md:text-5xl font-bold text-white">Our Value Approach</h2>
             </div>
           </RevealOnScroll>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
             {valueApproach.map((step, i) => (
               <RevealOnScroll key={step.step} delay={i * 80}>
-                <div className="border border-white/10 rounded-xl p-6 hover:border-[var(--t-accent)]/50 transition-colors">
-                  <div className="font-serif text-5xl font-bold text-[var(--t-accent)]/20 mb-3">{step.step}</div>
-                  <h4 className="font-semibold text-white text-lg mb-2">{step.title}</h4>
-                  <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
+                <div className="p-8 border border-white/5 hover:border-[var(--t-accent)]/30 transition-colors bg-[var(--t-dark)] group">
+                  <div className="font-serif text-6xl font-bold text-white/5 group-hover:text-[var(--t-accent)]/15 transition-colors mb-4 leading-none">{step.step}</div>
+                  <h4 className="font-semibold text-white text-base mb-2 tracking-wide">{step.title}</h4>
+                  <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </RevealOnScroll>
             ))}
@@ -171,13 +182,14 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="relative bg-[var(--t-accent)] py-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-10" style={{backgroundImage:"repeating-linear-gradient(45deg,var(--t-dark) 0,var(--t-dark) 1px,transparent 0,transparent 50%)",backgroundSize:"20px 20px"}} />
+      <section className="relative bg-[var(--t-dark)] py-24 overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage:"repeating-linear-gradient(0deg,white 0,white 1px,transparent 0,transparent 60px),repeating-linear-gradient(90deg,white 0,white 1px,transparent 0,transparent 60px)"}} />
         <div className="relative max-w-3xl mx-auto px-6 text-center">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-[var(--t-dark)] mb-4">Ready to Build Your Vision?</h2>
-          <p className="text-[var(--t-dark)]/70 text-lg mb-8">Let's discuss your project. Our team is ready to bring your ideas to life.</p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[var(--t-dark)] text-white px-8 py-4 rounded text-sm uppercase tracking-widest font-semibold hover:bg-[var(--t-dark-2)] transition-colors">
-            Start a Conversation <ArrowRight size={16} />
+          <div className="w-px h-12 bg-[var(--t-accent)]/40 mx-auto mb-8" />
+          <h2 className="font-serif text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">Ready to Build<br />Your Vision?</h2>
+          <p className="text-gray-400 text-lg mb-10 leading-relaxed">Let's discuss your project. Our team is ready to bring your ideas to life.</p>
+          <Link href="/contact" className="inline-flex items-center gap-3 border border-[var(--t-accent)] text-[var(--t-accent)] hover:bg-[var(--t-accent)] hover:text-white px-10 py-4 text-xs uppercase tracking-[0.2em] transition-colors duration-300">
+            Start a Conversation <ArrowRight size={14} />
           </Link>
         </div>
       </section>

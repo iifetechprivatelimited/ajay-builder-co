@@ -5,8 +5,8 @@ import { MapPin, Phone, Mail, Globe } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="bg-[var(--t-dark)] text-white">
-      {/* Top strip */}
-      <div className="bg-[var(--t-accent)] h-1 w-full" />
+      {/* Top accent line — thin, architectural */}
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-[var(--t-accent)] to-transparent opacity-50" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -49,7 +49,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-widest text-[var(--t-accent)] mb-5">
+            <h4 className="text-[10px] font-medium uppercase tracking-[0.25em] text-[var(--t-accent)] mb-5">
               Quick Links
             </h4>
             <ul className="space-y-3">
@@ -74,7 +74,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-widest text-[var(--t-accent)] mb-5">
+            <h4 className="text-[10px] font-medium uppercase tracking-[0.25em] text-[var(--t-accent)] mb-5">
               Contact Us
             </h4>
             <ul className="space-y-4">

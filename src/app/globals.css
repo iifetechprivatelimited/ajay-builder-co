@@ -1,27 +1,32 @@
 @import "tailwindcss";
 
+/* Activate Playfair Display as the serif font stack */
+@theme {
+  --font-serif: var(--font-playfair), ui-serif, Georgia, Cambria, "Times New Roman", serif;
+}
+
 /* ─── THEME VARIABLES ──────────────────────────────────────────
    --t-dark    : navbar / hero / dark-section bg
    --t-dark-2  : secondary dark (stats bar, card bg)
    --t-dark-3  : tertiary dark (hover states)
-   --t-accent  : primary accent (gold / teal / copper …)
+   --t-accent  : primary accent (bronze-gold)
    --t-accent-h: accent hover / lighter shade
    --t-light   : page background (warm white)
    --t-light-2 : alternate section background
    --t-dark-txt: dark body text
    ──────────────────────────────────────────────────────────── */
 
-/* 1. LEGACY — Navy & Gold (default) */
+/* 1. ARCHITECTURAL — Charcoal & Bronze-Gold (default) */
 :root,
 [data-theme="legacy"] {
-  --t-dark:     #0D1B2A;
-  --t-dark-2:   #1C2B3A;
-  --t-dark-3:   #2E4057;
-  --t-accent:   #C9A84C;
-  --t-accent-h: #E8C97A;
-  --t-light:    #FAF7F2;
-  --t-light-2:  #F5F0E8;
-  --t-dark-txt: #0D1B2A;
+  --t-dark:     #131313;
+  --t-dark-2:   #1E1E1E;
+  --t-dark-3:   #2C2C2C;
+  --t-accent:   #C4913A;
+  --t-accent-h: #D9AE5E;
+  --t-light:    #FAFAF8;
+  --t-light-2:  #F2F0EC;
+  --t-dark-txt: #131313;
 }
 
 /* 2. VERDANT — Forest & Sage */
@@ -93,20 +98,28 @@ body {
 }
 
 /* Custom scrollbar */
-::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--brand-cream); }
-::-webkit-scrollbar-thumb { background: var(--brand-gold); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--brand-gold); border-radius: 0; }
 ::-webkit-scrollbar-thumb:hover { background: var(--brand-navy); }
 
-/* Gold accent underline */
+/* Accent underline — thin, architectural */
 .gold-underline::after {
   content: "";
   display: block;
-  width: 56px;
-  height: 3px;
+  width: 40px;
+  height: 2px;
   background: var(--brand-gold);
-  margin-top: 10px;
-  border-radius: 2px;
+  margin-top: 14px;
+}
+
+/* Architectural card — border-based, no shadow lift */
+.luxury-card {
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  transition: border-color 0.3s ease;
+}
+.luxury-card:hover {
+  border-color: color-mix(in srgb, var(--t-accent) 50%, transparent);
 }
 
 
@@ -115,13 +128,12 @@ body {
 .zoom-wrap img { transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
 .zoom-wrap:hover img { transform: scale(1.08); }
 
-/* Card hover lift */
+/* Card hover — subtle shadow only, no lift */
 .card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .card-hover:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.13);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
 }
 
 /* Nav underline */
@@ -143,18 +155,17 @@ body {
   width: 100%;
 }
 
-/* Gold button */
+/* Gold button — architectural, no lift */
 .btn-gold {
   background: var(--brand-gold);
-  color: var(--brand-navy);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  border-radius: 2px;
+  transition: background 0.3s ease;
 }
 .btn-gold:hover {
   background: var(--t-accent-h);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px color-mix(in srgb, var(--t-accent) 40%, transparent);
 }
 
 /* ─── HERO CAROUSEL ─────────────────────────────────────────── */
@@ -197,16 +208,16 @@ body {
   animation: hero-slide-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Outline button */
+/* Outline button — architectural */
 .btn-outline {
-  border: 2px solid var(--brand-gold);
+  border: 1px solid var(--brand-gold);
   color: var(--brand-gold);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  transition: all 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  border-radius: 2px;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 .btn-outline:hover {
   background: var(--brand-gold);
-  color: var(--brand-navy);
-  transform: translateY(-2px);
+  color: #fff;
 }

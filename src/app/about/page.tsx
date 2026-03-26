@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import { trustedClients } from "@/lib/data";
 
@@ -56,22 +56,22 @@ export default function AboutPage() {
           </RevealOnScroll>
           <RevealOnScroll delay={200}>
             <div className="relative">
-              <div className="bg-[var(--t-light-2)] rounded-2xl p-8">
-                <div className="grid grid-cols-2 gap-6 mb-6">
+              <div className="bg-[var(--t-light-2)] p-8">
+                <div className="grid grid-cols-2 gap-px bg-gray-200 mb-px">
                   {[
                     {val:"1984", label:"Year Founded"},
                     {val:"40+", label:"Years Experience"},
                     {val:"1000+", label:"Projects Delivered"},
                     {val:"6", label:"Service Domains"},
                   ].map((item) => (
-                    <div key={item.label} className="text-center bg-white rounded-xl p-4 shadow-sm">
+                    <div key={item.label} className="text-center bg-white p-6">
                       <div className="font-serif text-3xl font-bold text-[var(--t-accent)]">{item.val}</div>
-                      <div className="text-gray-500 text-xs mt-1">{item.label}</div>
+                      <div className="text-gray-500 text-xs mt-1 uppercase tracking-[0.12em]">{item.label}</div>
                     </div>
                   ))}
                 </div>
-                <div className="relative h-48 rounded-xl overflow-hidden">
-                  <Image src="/images/logos/ABC Logo2.png" alt="Ajay Builders & Consultant" fill className="object-contain p-4" />
+                <div className="relative h-48 bg-white flex items-center justify-center mt-px">
+                  <Image src="/images/logos/ABC Logo2.png" alt="Ajay Builders & Consultant" fill className="object-contain p-8" />
                 </div>
               </div>
             </div>
@@ -90,7 +90,7 @@ export default function AboutPage() {
             </div>
           </RevealOnScroll>
           <RevealOnScroll delay={150}>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12 text-gray-300 leading-relaxed space-y-5">
+            <div className="bg-white/5 border border-white/10 rounded-none p-8 md:p-12 text-gray-300 leading-relaxed space-y-5">
               <p>
                 In recognition of an extraordinary professional journey spanning nearly four decades, <strong className="text-white">Shri Ajay Bansal</strong> stands as a distinguished figure in the fields of Architectural design, Urban Planning, Structural Engineering, Surveying, and Valuation. His unwavering commitment, technical excellence, and visionary leadership have left an indelible mark on the infrastructural development of Gwalior and the wider regions of Madhya Pradesh, Rajasthan, Chhattisgarh, and Delhi NCR.
               </p>
@@ -120,9 +120,9 @@ export default function AboutPage() {
           </RevealOnScroll>
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <RevealOnScroll>
-              <div className="bg-[var(--t-light-2)] rounded-2xl p-8">
-                <div className="w-12 h-12 bg-[var(--t-accent)] rounded-xl flex items-center justify-center mb-5">
-                  <span className="text-white font-serif font-bold text-xl">V</span>
+              <div className="bg-[var(--t-light-2)] rounded-none p-8">
+                <div className="w-10 h-10 bg-[var(--t-accent)] flex items-center justify-center mb-5">
+                  <span className="text-white font-serif font-bold text-lg">V</span>
                 </div>
                 <h3 className="font-serif text-2xl font-bold text-[var(--t-dark)] mb-4">Our Vision</h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -131,9 +131,9 @@ export default function AboutPage() {
               </div>
             </RevealOnScroll>
             <RevealOnScroll delay={150}>
-              <div className="bg-[var(--t-dark)] rounded-2xl p-8">
-                <div className="w-12 h-12 bg-[var(--t-accent)] rounded-xl flex items-center justify-center mb-5">
-                  <span className="text-white font-serif font-bold text-xl">M</span>
+              <div className="bg-[var(--t-dark)] rounded-none p-8">
+                <div className="w-10 h-10 bg-[var(--t-accent)] flex items-center justify-center mb-5">
+                  <span className="text-white font-serif font-bold text-lg">M</span>
                 </div>
                 <h3 className="font-serif text-2xl font-bold text-white mb-4">Our Mission</h3>
                 <p className="text-gray-300 leading-relaxed">
@@ -149,7 +149,7 @@ export default function AboutPage() {
               <div className="grid sm:grid-cols-2 gap-4">
                 {values.map((v, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <CheckCircle size={18} className="text-[var(--t-accent)] flex-shrink-0 mt-0.5" />
+                    <span className="w-5 h-px bg-[var(--t-accent)] flex-shrink-0 mt-2.5" />
                     <p className="text-gray-600 text-sm leading-relaxed">{v}</p>
                   </div>
                 ))}
@@ -171,7 +171,7 @@ export default function AboutPage() {
           <RevealOnScroll delay={100}>
             <div className="flex flex-wrap justify-center gap-3">
               {trustedClients.map((client) => (
-                <span key={client} className="bg-white border border-[var(--t-accent)]/20 text-gray-700 text-sm px-4 py-2 rounded-full">
+                <span key={client} className="bg-white border border-[var(--t-accent)]/20 text-gray-700 text-xs px-4 py-2.5 uppercase tracking-[0.08em]">
                   {client}
                 </span>
               ))}
@@ -183,10 +183,11 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-20 px-6 text-center">
         <RevealOnScroll>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-[var(--t-dark)] mb-4">Let&apos;s Build Something Exceptional Together</h2>
-          <p className="text-gray-600 mb-8">Our team is ready to listen, design, and deliver.</p>
-          <Link href="/contact" className="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded text-sm uppercase tracking-widest">
-            Contact Us <ArrowRight size={16} />
+          <div className="w-px h-10 bg-[var(--t-accent)]/40 mx-auto mb-8" />
+          <h2 className="font-serif text-3xl md:text-5xl font-bold text-[var(--t-dark)] mb-4">Let&apos;s Build Something Exceptional Together</h2>
+          <p className="text-gray-500 mb-10 leading-relaxed">Our team is ready to listen, design, and deliver.</p>
+          <Link href="/contact" className="btn-gold inline-flex items-center gap-3 px-10 py-4 text-xs uppercase tracking-[0.2em]">
+            Contact Us <ArrowRight size={14} />
           </Link>
         </RevealOnScroll>
       </section>

@@ -3,7 +3,7 @@
 import { useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, X } from "lucide-react";
+import { MapPin, X, ArrowRight } from "lucide-react";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import { projects, categories } from "@/lib/data";
 
@@ -57,16 +57,16 @@ export default function PortfolioPage() {
       </section>
 
       {/* STICKY FILTER BAR */}
-      <section className="sticky top-20 z-40 bg-[var(--t-light)]/95 backdrop-blur-sm border-b border-gray-200 py-4 px-6">
+      <section className="sticky top-24 z-40 bg-[var(--t-light)]/95 backdrop-blur-sm border-b border-gray-200 py-4 px-6">
         <div className="max-w-7xl mx-auto flex flex-wrap gap-2 justify-center">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => handleCategory(cat)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+              className={`px-5 py-2 text-xs font-medium uppercase tracking-[0.12em] transition-all duration-200 ${
                 activeCategory === cat
-                  ? "bg-[var(--t-accent)] text-[var(--t-dark)] shadow-sm"
-                  : "bg-white border border-gray-200 text-gray-600 hover:border-[var(--t-accent)] hover:text-[var(--t-accent)]"
+                  ? "bg-[var(--t-dark)] text-white"
+                  : "bg-white border border-gray-200 text-gray-500 hover:border-[var(--t-accent)] hover:text-[var(--t-accent)]"
               }`}
             >
               {cat}
@@ -91,7 +91,7 @@ export default function PortfolioPage() {
                   <RevealOnScroll key={project.id} delay={(i % 3) * 80}>
                     <div
                       id={project.id}
-                      className="break-inside-avoid mb-5 luxury-card card-hover bg-white rounded-xl overflow-hidden"
+                      className="break-inside-avoid mb-5 luxury-card card-hover bg-white overflow-hidden"
                     >
                       {/* Main image — varying height for masonry effect */}
                       <div
@@ -107,7 +107,7 @@ export default function PortfolioPage() {
                         />
                         {/* Photo count badge */}
                         {project.images.length > 1 && (
-                          <div className="absolute top-3 right-3 bg-black/60 text-white text-xs px-2 py-1 rounded backdrop-blur-sm">
+                          <div className="absolute top-3 right-3 bg-black/60 text-white text-[10px] px-2.5 py-1 backdrop-blur-sm tracking-[0.1em] uppercase">
                             +{project.images.length} photos
                           </div>
                         )}
@@ -119,7 +119,7 @@ export default function PortfolioPage() {
 
                       {/* Card body */}
                       <div className="p-5">
-                        <span className="text-[var(--t-accent)] text-xs uppercase tracking-widest font-medium">
+                        <span className="text-[var(--t-accent)] text-[10px] uppercase tracking-[0.18em]">
                           {project.category}
                         </span>
                         <h3 className="font-serif text-lg font-bold text-[var(--t-dark)] mt-1 mb-1">
@@ -138,7 +138,7 @@ export default function PortfolioPage() {
                               <button
                                 key={j}
                                 onClick={() => openLightbox(project.images, j + 1, project.title)}
-                                className="relative w-16 h-12 rounded flex-shrink-0 overflow-hidden border-2 border-transparent hover:border-[var(--t-accent)] transition-colors"
+                                className="relative w-16 h-12 flex-shrink-0 overflow-hidden border border-transparent hover:border-[var(--t-accent)] transition-colors"
                               >
                                 <Image src={img} alt="" fill className="object-cover" sizes="64px" />
                               </button>
@@ -195,16 +195,16 @@ export default function PortfolioPage() {
               <div className="flex items-center gap-4 justify-center">
                 <button
                   onClick={(e) => { e.stopPropagation(); lightboxNav(-1); }}
-                  className="text-white/60 hover:text-white transition-colors text-sm px-3 py-1 border border-white/20 rounded"
+                  className="text-white/60 hover:text-[var(--t-accent)] transition-colors text-xs px-4 py-2 border border-white/20 uppercase tracking-widest"
                 >
                   ‹ Prev
                 </button>
-                <span className="text-white/40 text-xs">
+                <span className="text-white/30 text-xs tracking-widest">
                   {lightboxIdx + 1} / {lightbox.all.length}
                 </span>
                 <button
                   onClick={(e) => { e.stopPropagation(); lightboxNav(1); }}
-                  className="text-white/60 hover:text-white transition-colors text-sm px-3 py-1 border border-white/20 rounded"
+                  className="text-white/60 hover:text-[var(--t-accent)] transition-colors text-xs px-4 py-2 border border-white/20 uppercase tracking-widest"
                 >
                   Next ›
                 </button>
@@ -215,19 +215,20 @@ export default function PortfolioPage() {
       )}
 
       {/* CTA */}
-      <section className="bg-[var(--t-light-2)] py-16 px-6 text-center">
+      <section className="bg-[var(--t-dark)] py-20 px-6 text-center">
         <RevealOnScroll>
-          <p className="text-[var(--t-accent)] text-sm uppercase tracking-[0.25em] mb-3">
+          <div className="w-px h-10 bg-[var(--t-accent)]/40 mx-auto mb-8" />
+          <p className="text-[var(--t-accent)] text-[10px] uppercase tracking-[0.3em] mb-4">
             Interested in Working With Us?
           </p>
-          <h2 className="font-serif text-3xl font-bold text-[var(--t-dark)] mb-6">
+          <h2 className="font-serif text-3xl md:text-5xl font-bold text-white mb-10">
             Let&apos;s Create Your Next Landmark
           </h2>
           <Link
             href="/contact"
-            className="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded text-sm uppercase tracking-widest"
+            className="btn-outline inline-flex items-center gap-3 px-10 py-4 text-xs uppercase tracking-[0.2em]"
           >
-            Get in Touch
+            Get in Touch <ArrowRight size={14} />
           </Link>
         </RevealOnScroll>
       </section>

@@ -101,8 +101,8 @@ export default function HeroCarousel() {
               />
             </div>
 
-            {/* Darkening gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-black/75" />
+            {/* Darkening gradient — light overlay to let architecture breathe */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/65" />
           </div>
         );
       })}
@@ -124,9 +124,9 @@ export default function HeroCarousel() {
       {/* ── Text content ── */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white pt-20 select-none">
 
-        {/* Badge — static, always visible */}
-        <div className="inline-flex items-center gap-2 border border-[var(--t-accent)]/40 text-[var(--t-accent)] text-xs uppercase tracking-[0.3em] px-4 py-2 rounded mb-8">
-          <Award size={14} />
+        {/* Badge — editorial style, no rounded corners */}
+        <div className="inline-flex items-center gap-3 border-l-2 border-[var(--t-accent)] text-[var(--t-accent)] text-[10px] uppercase tracking-[0.35em] pl-4 mb-10">
+          <Award size={12} strokeWidth={1.5} />
           Established 1984 · 40 Years of Excellence
         </div>
 
@@ -142,7 +142,7 @@ export default function HeroCarousel() {
 
           {/* Main headline */}
           <h1
-            className="hero-text-enter font-serif text-5xl md:text-7xl font-bold leading-tight mb-6"
+            className="hero-text-enter font-serif text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] mb-6 tracking-tight"
             style={{ animationDelay: "80ms" }}
           >
             Designing Spaces.<br />
@@ -151,20 +151,19 @@ export default function HeroCarousel() {
 
           {/* Current project name */}
           <p
-            className="hero-text-enter text-white/70 text-base md:text-lg italic mb-4"
+            className="hero-text-enter text-white/50 text-xs uppercase tracking-[0.25em] mb-3"
             style={{ animationDelay: "160ms" }}
           >
-            — {slides[current].project}
+            {slides[current].category} &nbsp;·&nbsp; {slides[current].project}
           </p>
 
           {/* Sub-copy */}
           <p
-            className="hero-text-enter text-gray-300 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="hero-text-enter text-gray-400 text-sm md:text-base max-w-xl mx-auto mb-12 leading-relaxed"
             style={{ animationDelay: "220ms" }}
           >
-            A multi-disciplinary group delivering world-class Architecture,
-            Engineering, Interior Design, and Real Estate Development across
-            India since 1984.
+            A multi-disciplinary firm delivering Architecture, Engineering,
+            Interior Design, and Real Estate Development across India since 1984.
           </p>
 
           {/* CTAs */}
@@ -174,13 +173,13 @@ export default function HeroCarousel() {
           >
             <Link
               href="/portfolio"
-              className="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded text-sm uppercase tracking-widest"
+              className="btn-gold inline-flex items-center gap-3 px-10 py-4 text-xs uppercase tracking-[0.2em]"
             >
-              View Our Work <ArrowRight size={16} />
+              View Our Work <ArrowRight size={14} />
             </Link>
             <Link
               href="/contact"
-              className="btn-outline inline-flex items-center gap-2 px-8 py-4 rounded text-sm uppercase tracking-widest"
+              className="btn-outline inline-flex items-center gap-3 px-10 py-4 text-xs uppercase tracking-[0.2em]"
             >
               Get in Touch
             </Link>
@@ -192,29 +191,29 @@ export default function HeroCarousel() {
       <button
         onClick={prev}
         aria-label="Previous slide"
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/30 bg-black/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-all duration-200"
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 border border-white/20 bg-black/10 backdrop-blur-sm flex items-center justify-center text-white hover:border-[var(--t-accent)] hover:text-[var(--t-accent)] transition-all duration-300"
       >
-        <ChevronLeft size={22} />
+        <ChevronLeft size={18} strokeWidth={1.5} />
       </button>
       <button
         onClick={next}
         aria-label="Next slide"
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/30 bg-black/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-all duration-200"
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 border border-white/20 bg-black/10 backdrop-blur-sm flex items-center justify-center text-white hover:border-[var(--t-accent)] hover:text-[var(--t-accent)] transition-all duration-300"
       >
-        <ChevronRight size={22} />
+        <ChevronRight size={18} strokeWidth={1.5} />
       </button>
 
-      {/* ── Dot indicators ── */}
+      {/* ── Dot indicators — minimal lines ── */}
       <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
             aria-label={`Go to slide ${i + 1}`}
-            className={`rounded-full transition-all duration-400 ${
+            className={`transition-all duration-400 h-px ${
               i === current
-                ? "w-8 h-2 bg-[var(--t-accent)]"
-                : "w-2 h-2 bg-white/40 hover:bg-white/70"
+                ? "w-10 bg-[var(--t-accent)]"
+                : "w-4 bg-white/30 hover:bg-white/60"
             }`}
           />
         ))}

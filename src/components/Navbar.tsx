@@ -38,10 +38,10 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${navBg}`}
     >
-      <nav className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-6 lg:px-10 h-24 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 relative flex-shrink-0">
+        <Link href="/" className="flex items-center gap-4 group">
+          <div className="w-11 h-11 relative flex-shrink-0">
             <Image
               src="/images/logos/ABC Logo2.png"
               alt="ABC Logo"
@@ -51,23 +51,23 @@ export default function Navbar() {
           </div>
           <div>
             <div
-              className={`font-serif font-bold text-lg leading-none ${textColor}`}
+              className={`font-serif font-bold text-base leading-tight tracking-wide ${textColor}`}
             >
               Ajay Builders & Consultant
             </div>
-            <div className="text-[10px] tracking-[0.2em] text-[var(--t-accent)] uppercase">
-              Architecture · Engineering
+            <div className="text-[9px] tracking-[0.3em] text-[var(--t-accent)] uppercase mt-0.5">
+              Architecture · Engineering · Interiors
             </div>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`nav-link text-sm font-medium tracking-wide transition-colors duration-200 ${textColor} hover:text-[var(--t-accent)] ${
+                className={`nav-link text-xs font-medium tracking-[0.12em] uppercase transition-colors duration-200 ${textColor} hover:text-[var(--t-accent)] ${
                   pathname === link.href ? "active text-[var(--t-accent)]" : ""
                 }`}
               >
@@ -78,11 +78,11 @@ export default function Navbar() {
         </ul>
 
         {/* CTA + ThemeSwitcher */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-4">
           <ThemeSwitcher />
           <Link
             href="/contact"
-            className="btn-gold px-5 py-2.5 rounded text-sm uppercase tracking-widest"
+            className="btn-gold px-6 py-2.5 text-xs uppercase tracking-[0.15em]"
           >
             Get in Touch
           </Link>
