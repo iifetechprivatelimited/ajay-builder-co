@@ -8,40 +8,104 @@ import { ArrowRight, Award, ChevronLeft, ChevronRight } from "lucide-react";
 const SLIDE_DURATION = 6000; // ms per slide
 
 const slides = [
+  // {
+  //   image: "/images/projects/slide07_img01.jpg",
+  //   category: "Hospitality",
+  //   project: "Kailadevi Ji Resort",
+  //   location: "Karauli, Rajasthan",
+  //   kb: 1,
+  // },C:\Projects\Iifetech\ajay-builder-co\public\images\projects\slide07_img06.jpg
+  //   {
+  //   image: "/images/projects/slide08_img04.jpg",
+  //   category: "Infrastructure",
+  //   project: "",
+  //   location: "",
+  //   kb: 1,
+  // },
   {
-    image: "/images/projects/slide07_img01.jpg",
-    category: "Hospitality",
-    project: "Kailadevi Ji Resort",
-    location: "Karauli, Rajasthan",
+    image: "/images/projects/image27.jpg",
+    category: "Infrastructure",
+    project: "Transport Nagar",
+    location: "Morena",
     kb: 1,
   },
+    {
+    image: "/images/projects/slide07_img06.jpg",
+    category: "Infrastructure",
+    project: "",
+    location: "",
+    kb: 3,
+  },
   {
-    image: "/images/projects/slide08_img04.jpg",
+    image: "/images/projects/slide24_img04.jpg",
     category: "Infrastructure",
     project: "Transport Nagar",
     location: "Morena",
     kb: 2,
+  },
+    {
+    image: "/images/projects/image24.jpeg",
+    category: "Infrastructure",
+    project: "",
+    location: "",
+    kb: 4,
+  },
+
+  {
+    image: "/images/projects/slide09_img04.jpg",
+    category: "Infrastructure",
+    project: "",
+    location: "",
+    kb: 4,
+  },
+    {
+    image: "/images/projects/image31.jpeg",
+    category: "Infrastructure",
+    project: "",
+    location: "",
+    kb: 4,
+  },
+  {
+    image: "/images/projects/slide19_img02.jpg",
+    category: "Infrastructure",
+    project: "Transport Nagar",
+    location: "Morena",
+    kb: 5,
+  },
+  {
+    image: "/images/projects/slide20_img02.jpg",
+    category: "Infrastructure",
+    project: "Transport Nagar",
+    location: "Morena",
+    kb: 6,
+  },
+  {
+    image: "/images/projects/slide27_img04.jpg",
+    category: "Infrastructure",
+    project: "Transport Nagar",
+    location: "Morena",
+    kb: 7,
   },
   {
     image: "/images/projects/slide10_img04.jpg",
     category: "Commercial",
     project: "I S Tower",
     location: "City Center, Gwalior",
-    kb: 3,
+    kb: 8,
   },
   {
     image: "/images/projects/slide23_img04.jpg",
     category: "Residential Interiors",
     project: "Residence of Sh. Dheeraj Garg",
     location: "Gandhi Nagar, Gwalior",
-    kb: 4,
+    kb: 9,
   },
   {
     image: "/images/projects/slide14_img04.jpg",
     category: "Residential",
     project: "Residence of Mr. Sunil Goyal",
     location: "Gwalior",
-    kb: 5,
+    kb: 10,
   },
 ];
 
