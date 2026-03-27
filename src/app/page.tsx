@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Building2, Users, MapPin, Award, Compass, Wrench, Sofa, BarChart2, Key, Landmark } from "lucide-react";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import HeroCarousel from "@/components/HeroCarousel";
+import NibaVenturesSection from "@/components/NibaVenturesSection";
 import { stats, services, projects, valueApproach } from "@/lib/data";
 
 const serviceIconMap: Record<string, React.ReactNode> = {
@@ -157,6 +158,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* NIBA VENTURES — GROUP ASSOCIATE */}
+      <NibaVenturesSection />
 
       {/* PROCESS */}
       <section className="bg-[var(--t-dark)] py-24">

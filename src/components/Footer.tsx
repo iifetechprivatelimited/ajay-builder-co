@@ -35,7 +35,7 @@ export default function Footer() {
               firm delivering excellence in Architecture, Engineering, Interior
               Design, Development, and Valuation across India.
             </p>
-            <div className="flex gap-3">
+            <div className="flex flex-col gap-2">
               <a
                 href="https://www.ajaybansalgroup.com"
                 target="_blank"
@@ -43,6 +43,14 @@ export default function Footer() {
                 className="text-[var(--t-accent)] hover:text-white transition-colors text-sm"
               >
                 www.ajaybansalgroup.com
+              </a>
+              <a
+                href="https://niba-ventures.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-[var(--t-accent)] transition-colors text-sm"
+              >
+                NIBA Ventures — Associate Firm ↗
               </a>
             </div>
           </div>
